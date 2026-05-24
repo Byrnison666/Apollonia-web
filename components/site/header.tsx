@@ -72,16 +72,29 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
-          <a
-            href={`tel:${primaryPhone.phoneHref}`}
-            className="hidden items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-emerald xl:flex"
+          <ButtonLink
+            href="/zapis"
+            size="md"
+            className="text-xs uppercase tracking-[0.16em] ring-1 ring-inset ring-gold/30 hover:ring-gold/60"
           >
-            <Phone className="size-4 text-gold" strokeWidth={1.75} />
-            {primaryPhone.phone}
-          </a>
-          <ButtonLink href="/zapis" size="md">
             Записаться
           </ButtonLink>
+          <a
+            href={`tel:${primaryPhone.phoneHref}`}
+            className="group hidden items-center gap-3 xl:flex"
+          >
+            <span className="flex size-11 items-center justify-center rounded-full border border-gold/40 text-gold transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink-strong">
+              <Phone className="size-4" strokeWidth={1.75} />
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="text-[0.62rem] font-medium uppercase tracking-[0.2em] text-gold">
+                Запись по телефону
+              </span>
+              <span className="font-heading text-base font-semibold tracking-wide text-ink transition-colors group-hover:text-emerald">
+                {primaryPhone.phone}
+              </span>
+            </span>
+          </a>
         </div>
 
         <button
