@@ -44,56 +44,57 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:h-24 sm:px-8">
-        <Link href="/" aria-label={`${clinic.name} — на главную`}>
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:h-24 sm:px-8 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-8">
+        <Link
+          href="/"
+          aria-label={`${clinic.name} — на главную`}
+          className="lg:justify-self-start"
+        >
           <Logo priority className="h-12 sm:h-16" />
         </Link>
 
-        {/* Десктоп: меню + телефон справа */}
-        <div className="hidden items-center gap-8 lg:flex xl:gap-12">
-          <nav className="flex items-center gap-7 xl:gap-9">
-            {navItems.map((item) => {
-              const active = isActive(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
+        {/* Меню по центру */}
+        <nav className="hidden items-center gap-7 lg:flex lg:justify-self-center xl:gap-9">
+          {navItems.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "group relative py-1.5 text-[0.95rem] whitespace-nowrap tracking-[0.01em] transition-colors duration-200",
+                  active ? "text-emerald" : "text-ink hover:text-emerald",
+                )}
+              >
+                {item.label}
+                <span
                   className={cn(
-                    "group relative py-1.5 text-[0.95rem] tracking-[0.01em] transition-colors duration-200",
-                    active
-                      ? "text-emerald"
-                      : "text-ink hover:text-emerald",
+                    "pointer-events-none absolute -bottom-0.5 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-300 ease-out",
+                    active ? "w-full" : "w-0 group-hover:w-full",
                   )}
-                >
-                  {item.label}
-                  <span
-                    className={cn(
-                      "pointer-events-none absolute -bottom-0.5 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-300 ease-out",
-                      active ? "w-full" : "w-0 group-hover:w-full",
-                    )}
-                  />
-                </Link>
-              );
-            })}
-          </nav>
+                />
+              </Link>
+            );
+          })}
+        </nav>
 
-          <a
-            href={`tel:${primaryPhone.phoneHref}`}
-            className="group hidden items-center gap-3 xl:flex"
-          >
-            <span className="flex size-11 items-center justify-center rounded-full border border-gold/40 text-gold transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink-strong">
-              <Phone className="size-4" strokeWidth={1.75} />
+        {/* Телефон справа */}
+        <a
+          href={`tel:${primaryPhone.phoneHref}`}
+          className="group hidden items-center gap-3 lg:justify-self-end xl:flex"
+        >
+          <span className="flex size-11 items-center justify-center rounded-full border border-gold/40 text-gold transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink-strong">
+            <Phone className="size-4" strokeWidth={1.75} />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-[0.62rem] font-medium uppercase tracking-[0.2em] text-gold">
+              Запись по телефону
             </span>
-            <span className="flex flex-col leading-tight">
-              <span className="text-[0.62rem] font-medium uppercase tracking-[0.2em] text-gold">
-                Запись по телефону
-              </span>
-              <span className="font-heading text-base font-semibold tracking-wide text-ink transition-colors group-hover:text-emerald">
-                {primaryPhone.phone}
-              </span>
+            <span className="font-heading text-base font-semibold tracking-wide text-ink transition-colors group-hover:text-emerald">
+              {primaryPhone.phone}
             </span>
-          </a>
-        </div>
+          </span>
+        </a>
 
         <button
           type="button"
