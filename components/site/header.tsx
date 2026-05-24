@@ -32,6 +32,9 @@ export function Header() {
     };
   }, [open]);
 
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
+
   return (
     <header
       className={cn(
@@ -46,39 +49,34 @@ export function Header() {
           <Logo priority className="h-12 sm:h-16" />
         </Link>
 
-        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
-          {navItems.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(item.href + "/");
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative text-sm font-medium tracking-wide transition-colors duration-200 hover:text-emerald",
-                  active ? "text-emerald" : "text-ink",
-                )}
-              >
-                {item.label}
-                <span
+        {/* Десктоп: меню + телефон справа */}
+        <div className="hidden items-center gap-8 lg:flex xl:gap-12">
+          <nav className="flex items-center gap-7 xl:gap-9">
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
                   className={cn(
-                    "absolute -bottom-1.5 left-0 h-px bg-gold transition-all duration-300",
-                    active ? "w-full" : "w-0",
+                    "group relative py-1.5 text-[0.95rem] tracking-[0.01em] transition-colors duration-200",
+                    active
+                      ? "text-emerald"
+                      : "text-ink hover:text-emerald",
                   )}
-                />
-              </Link>
-            );
-          })}
-        </nav>
+                >
+                  {item.label}
+                  <span
+                    className={cn(
+                      "pointer-events-none absolute -bottom-0.5 left-1/2 h-px -translate-x-1/2 bg-gold transition-all duration-300 ease-out",
+                      active ? "w-full" : "w-0 group-hover:w-full",
+                    )}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
-          <ButtonLink
-            href="/zapis"
-            size="md"
-            className="text-xs uppercase tracking-[0.16em] ring-1 ring-inset ring-gold/30 hover:ring-gold/60"
-          >
-            Записаться
-          </ButtonLink>
           <a
             href={`tel:${primaryPhone.phoneHref}`}
             className="group hidden items-center gap-3 xl:flex"
@@ -117,8 +115,7 @@ export function Header() {
       >
         <nav className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-6 sm:px-8">
           {navItems.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(item.href + "/");
+            const active = isActive(item.href);
             return (
               <Link
                 key={item.href}
@@ -136,10 +133,19 @@ export function Header() {
           })}
           <a
             href={`tel:${primaryPhone.phoneHref}`}
-            className="mt-2 flex items-center gap-2 px-4 py-2 text-base font-medium text-ink"
+            className="mt-3 flex items-center gap-3 rounded-xl border border-line px-4 py-3"
           >
-            <Phone className="size-4 text-gold" strokeWidth={1.75} />
-            {primaryPhone.phone}
+            <span className="flex size-10 items-center justify-center rounded-full border border-gold/40 text-gold">
+              <Phone className="size-4" strokeWidth={1.75} />
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="text-[0.62rem] font-medium uppercase tracking-[0.2em] text-gold">
+                Запись по телефону
+              </span>
+              <span className="font-heading text-base font-semibold text-ink">
+                {primaryPhone.phone}
+              </span>
+            </span>
           </a>
           <ButtonLink href="/zapis" size="md" className="mt-2 w-full">
             Записаться на приём
