@@ -16,7 +16,10 @@ export function Logo({
       width={2206}
       height={510}
       priority={priority}
-      className={cn("h-9 w-auto sm:h-11", className)}
+      className={cn(
+        "h-9 w-auto drop-shadow-[0_1px_3px_rgba(28,25,23,0.18)] sm:h-11",
+        className,
+      )}
     />
   );
 }
