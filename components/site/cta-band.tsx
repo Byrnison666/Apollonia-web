@@ -5,7 +5,7 @@ import { ButtonLink } from "./buttons";
 import { Reveal } from "./reveal";
 
 export function CtaBand({
-  title = "Запишитесь на бесплатную консультацию",
+  title = "Запишитесь на консультацию",
   subtitle = "Осмотр, план лечения и расчёт стоимости — без обязательств. Подберём удобное время в ближайшем к вам филиале.",
 }: {
   title?: string;
@@ -26,7 +26,7 @@ export function CtaBand({
           <div className="flex flex-col gap-4">
             <span className="eyebrow justify-center text-gold-soft">
               <span className="h-px w-6 bg-gold" />
-              Бесплатная консультация
+              Запись на приём
             </span>
             <h2 className="mx-auto max-w-2xl font-heading text-3xl font-semibold leading-tight text-cream sm:text-4xl">
               {title}

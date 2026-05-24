@@ -68,7 +68,7 @@ export function Hero() {
               </span>
               <span className="flex items-center gap-2">
                 <ShieldCheck className="size-4 text-emerald" strokeWidth={1.75} />
-                Бесплатная консультация
+                Лечение без боли
               </span>
             </div>
           </div>

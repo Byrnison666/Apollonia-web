@@ -112,7 +112,7 @@ export function Footer() {
           </p>
           <p className="flex items-center gap-2">
             <Phone className="size-3.5 text-gold" strokeWidth={1.75} />
-            Бесплатная консультация по телефону
+            Звоните — мы на связи
           </p>
         </div>
       </div>

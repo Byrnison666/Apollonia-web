@@ -119,7 +119,7 @@ export default async function ServicePage({ params }: Params) {
                 <div className="hairline" />
                 <div className="flex flex-col gap-3">
                   <p className="text-sm text-ink-soft">
-                    Первичная консультация и план лечения — бесплатно.
+                    Составим индивидуальный план лечения и рассчитаем стоимость.
                   </p>
                   <ButtonLink href="/zapis" size="md" className="w-full">
                     Записаться на приём

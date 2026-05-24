@@ -9,7 +9,7 @@ import { BookingSection } from "@/components/site/booking-section";
 export const metadata: Metadata = {
   title: "Контакты",
   description:
-    "Контакты сети стоматологий «Аполлония» в Луганске: телефоны филиалов, email, часы работы. Запишитесь на бесплатную консультацию.",
+    "Контакты сети стоматологий «Аполлония» в Луганске: телефоны филиалов, email, часы работы. Запишитесь на приём онлайн или по телефону.",
 };
 
 export default function ContactsPage() {
