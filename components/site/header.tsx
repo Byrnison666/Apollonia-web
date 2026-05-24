@@ -43,7 +43,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href="/" aria-label={`${clinic.name} — на главную`}>
-          <Logo />
+          <Logo priority />
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">

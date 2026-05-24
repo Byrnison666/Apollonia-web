@@ -16,7 +16,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
           {/* Бренд */}
           <div className="flex flex-col gap-5">
-            <Logo variant="light" />
+            <Logo className="h-11 sm:h-12" />
             <p className="max-w-xs text-sm leading-relaxed text-cream/70">
               {clinic.description}
             </p>
