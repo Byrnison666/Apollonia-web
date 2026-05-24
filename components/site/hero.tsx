@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { ArrowRight, Gem, Microscope, Phone, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { ArrowRight, Gem, Microscope, Phone, ShieldCheck } from "lucide-react";
 import { clinic, primaryPhone } from "@/lib/data";
 import { Container } from "./section";
 import { ButtonLink } from "./buttons";
+import { ServicesShowcase } from "./services-showcase";
 
 export function Hero() {
   return (
@@ -73,57 +73,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Визуальная композиция — реальное фото клиники */}
-          <div className="relative mx-auto w-full max-w-md animate-in fade-in slide-in-from-right-6 duration-1000 lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line">
-              <Image
-                src="/clinic/1.jpg"
-                alt="Стоматологический кабинет клиники «Аполлония»"
-                fill
-                priority
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-              />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-emerald-deep/75 via-emerald-deep/10 to-transparent"
-                aria-hidden
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-7">
-                <p className="font-heading text-2xl leading-snug text-cream">
-                  Здоровье и эстетика
-                  <br />
-                  вашей улыбки
-                </p>
-                <Sparkles className="size-6 shrink-0 text-gold-soft" />
-              </div>
-            </div>
-
-            {/* Плавающая карточка — врачи */}
-            <div className="absolute -left-4 top-10 flex items-center gap-3 rounded-2xl border border-line bg-card/95 p-4 shadow-[0_20px_50px_-25px_rgba(0,0,0,0.4)] backdrop-blur-sm sm:-left-8">
-              <span className="flex size-11 items-center justify-center rounded-xl bg-emerald-soft text-emerald">
-                <Users className="size-5" strokeWidth={1.75} />
-              </span>
-              <div className="flex flex-col leading-tight">
-                <span className="font-heading text-xl font-semibold text-ink">
-                  13 врачей
-                </span>
-                <span className="text-xs text-ink-soft">профильных специалистов</span>
-              </div>
-            </div>
-
-            {/* Плавающая карточка — филиалы */}
-            <div className="absolute -bottom-5 right-0 flex items-center gap-3 rounded-2xl border border-line bg-card/95 p-4 shadow-[0_20px_50px_-25px_rgba(0,0,0,0.4)] backdrop-blur-sm sm:-right-6">
-              <span className="flex size-11 items-center justify-center rounded-xl bg-gold-tint text-gold">
-                <Sparkles className="size-5" strokeWidth={1.75} />
-              </span>
-              <div className="flex flex-col leading-tight">
-                <span className="font-heading text-xl font-semibold text-ink">
-                  3 филиала
-                </span>
-                <span className="text-xs text-ink-soft">в центре города</span>
-              </div>
-            </div>
+          {/* Анимированный показ услуг */}
+          <div className="animate-in fade-in slide-in-from-right-6 duration-1000">
+            <ServicesShowcase />
           </div>
         </div>
       </Container>

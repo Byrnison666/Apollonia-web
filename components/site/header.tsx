@@ -41,12 +41,12 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-24 w-full max-w-6xl items-center justify-between px-5 sm:h-28 sm:px-8">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:h-24 sm:px-8">
         <Link href="/" aria-label={`${clinic.name} — на главную`}>
-          <Logo priority className="h-14 sm:h-20" />
+          <Logo priority className="h-12 sm:h-16" />
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
           {navItems.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(item.href + "/");

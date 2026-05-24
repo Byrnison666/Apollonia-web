@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, Phone, Stethoscope } from "lucide-react";
@@ -53,6 +54,17 @@ export default async function ServicePage({ params }: Params) {
           <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:gap-16">
             {/* Описание */}
             <Reveal className="flex flex-col gap-10">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-line">
+                <Image
+                  src={`/services/${service.slug}.jpg`}
+                  alt={service.title}
+                  fill
+                  priority
+                  quality={90}
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="flex flex-col gap-5">
                 <span className="flex size-14 items-center justify-center rounded-2xl bg-emerald-soft text-emerald">
                   <Icon name={service.icon} className="size-7" />
@@ -90,7 +102,7 @@ export default async function ServicePage({ params }: Params) {
 
             {/* Сайдбар */}
             <Reveal delay={0.1}>
-              <div className="lg:sticky lg:top-28 flex flex-col gap-6 rounded-3xl border border-line bg-card p-7 shadow-[0_30px_80px_-55px_rgba(15,81,50,0.55)]">
+              <div className="lg:sticky lg:top-24 flex flex-col gap-6 rounded-3xl border border-line bg-card p-7 shadow-[0_30px_80px_-55px_rgba(15,81,50,0.55)]">
                 <h2 className="font-heading text-xl font-semibold text-ink">
                   Преимущества
                 </h2>

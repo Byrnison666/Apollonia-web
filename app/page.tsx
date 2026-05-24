@@ -25,7 +25,7 @@ export default function HomePage() {
       />
       <Technology />
       <Advantages className="bg-secondary/40" />
-      <Gallery limit={8} />
+      <Gallery />
       <LocationsSection className="bg-secondary/40" />
       <Testimonials />
       <BookingSection />
