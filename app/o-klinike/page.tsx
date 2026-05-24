@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { HeartHandshake, Quote, Target } from "lucide-react";
-import { clinic } from "@/lib/data";
+import { clinic, doctors } from "@/lib/data";
 import { PageHero } from "@/components/site/page-hero";
 import { Container, Section } from "@/components/site/section";
 import { Reveal } from "@/components/site/reveal";
 import { Stats } from "@/components/site/stats";
 import { Advantages } from "@/components/site/advantages";
 import { Technology } from "@/components/site/technology";
+import { Gallery } from "@/components/site/gallery";
+import { DoctorsSection } from "@/components/site/doctors-section";
 import { CtaBand } from "@/components/site/cta-band";
 
 export const metadata: Metadata = {
@@ -47,7 +50,7 @@ export default function AboutPage() {
                 Наша история
               </span>
               <h2 className="text-3xl leading-tight text-ink sm:text-4xl">
-                Более 15 лет создаём здоровые улыбки
+                Создаём здоровые улыбки каждый день
               </h2>
               <p className="text-base leading-relaxed text-ink-soft sm:text-lg">
                 «Аполлония» выросла из идеи о стоматологии, где пациент чувствует
@@ -64,6 +67,16 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.1} className="flex flex-col gap-6">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-line">
+                <Image
+                  src="/clinic/2.jpg"
+                  alt="Современный кабинет клиники «Аполлония»"
+                  fill
+                  quality={90}
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="relative overflow-hidden rounded-3xl bg-emerald p-8 text-cream">
                 <Quote className="size-10 text-gold-soft" />
                 <p className="mt-4 font-heading text-2xl leading-snug">
@@ -103,6 +116,12 @@ export default function AboutPage() {
 
       <Advantages className="bg-secondary/40" />
       <Technology />
+      <DoctorsSection
+        items={doctors.slice(0, 8)}
+        showAllButton
+        className="bg-secondary/40"
+      />
+      <Gallery />
       <CtaBand />
     </>
   );

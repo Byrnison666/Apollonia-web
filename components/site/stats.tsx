@@ -6,7 +6,7 @@ export function Stats() {
   return (
     <Container>
       <Reveal>
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-3">
           {stats.map((s) => (
             <div
               key={s.label}

@@ -1,4 +1,5 @@
-import { ArrowRight, Phone, ShieldCheck, Sparkles, Star } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Gem, Microscope, Phone, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { clinic, primaryPhone } from "@/lib/data";
 import { Container } from "./section";
 import { ButtonLink } from "./buttons";
@@ -56,61 +57,58 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            <div className="flex animate-in fade-in flex-wrap items-center gap-x-8 gap-y-3 pt-2 delay-300 duration-1000">
-              <div className="flex items-center gap-2">
-                <div className="flex text-gold" aria-hidden>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="size-4 fill-gold" />
-                  ))}
-                </div>
-                <span className="text-sm text-ink-soft">
-                  4.9 — рейтинг пациентов
-                </span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-ink-soft">
+            <div className="flex animate-in fade-in flex-wrap items-center gap-x-6 gap-y-3 pt-2 text-sm text-ink-soft delay-300 duration-1000">
+              <span className="flex items-center gap-2">
+                <Microscope className="size-4 text-emerald" strokeWidth={1.75} />
+                Лечение под микроскопом
+              </span>
+              <span className="flex items-center gap-2">
+                <Gem className="size-4 text-emerald" strokeWidth={1.75} />
+                Премиальные материалы
+              </span>
+              <span className="flex items-center gap-2">
                 <ShieldCheck className="size-4 text-emerald" strokeWidth={1.75} />
                 Бесплатная консультация
-              </div>
+              </span>
             </div>
           </div>
 
-          {/* Визуальная композиция */}
+          {/* Визуальная композиция — реальное фото клиники */}
           <div className="relative mx-auto w-full max-w-md animate-in fade-in slide-in-from-right-6 duration-1000 lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-emerald to-emerald-deep p-8">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-line">
+              <Image
+                src="/clinic/1.jpg"
+                alt="Стоматологический кабинет клиники «Аполлония»"
+                fill
+                priority
+                quality={90}
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+              />
               <div
-                className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-gold/20 blur-2xl"
+                className="absolute inset-0 bg-gradient-to-t from-emerald-deep/75 via-emerald-deep/10 to-transparent"
                 aria-hidden
               />
-              <div className="relative flex h-full flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <span className="font-heading text-2xl font-semibold text-cream">
-                    Аполлония
-                  </span>
-                  <Sparkles className="size-6 text-gold-soft" />
-                </div>
-                <div className="space-y-4">
-                  <p className="font-heading text-3xl leading-snug text-cream">
-                    Здоровье и эстетика вашей улыбки
-                  </p>
-                  <p className="text-sm text-cream/70">
-                    {clinic.hours.weekdays}
-                    <br />
-                    {clinic.hours.weekend}
-                  </p>
-                </div>
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-7">
+                <p className="font-heading text-2xl leading-snug text-cream">
+                  Здоровье и эстетика
+                  <br />
+                  вашей улыбки
+                </p>
+                <Sparkles className="size-6 shrink-0 text-gold-soft" />
               </div>
             </div>
 
-            {/* Плавающая карточка — пациенты */}
+            {/* Плавающая карточка — врачи */}
             <div className="absolute -left-4 top-10 flex items-center gap-3 rounded-2xl border border-line bg-card/95 p-4 shadow-[0_20px_50px_-25px_rgba(0,0,0,0.4)] backdrop-blur-sm sm:-left-8">
               <span className="flex size-11 items-center justify-center rounded-xl bg-emerald-soft text-emerald">
-                <ShieldCheck className="size-5" strokeWidth={1.75} />
+                <Users className="size-5" strokeWidth={1.75} />
               </span>
               <div className="flex flex-col leading-tight">
                 <span className="font-heading text-xl font-semibold text-ink">
-                  20 000+
+                  13 врачей
                 </span>
-                <span className="text-xs text-ink-soft">довольных пациентов</span>
+                <span className="text-xs text-ink-soft">профильных специалистов</span>
               </div>
             </div>
 

@@ -46,7 +46,7 @@ export function Header() {
           <Logo priority className="h-14 sm:h-20" />
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navItems.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(item.href + "/");
@@ -74,7 +74,7 @@ export function Header() {
         <div className="hidden items-center gap-5 lg:flex">
           <a
             href={`tel:${primaryPhone.phoneHref}`}
-            className="flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-emerald"
+            className="hidden items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-emerald xl:flex"
           >
             <Phone className="size-4 text-gold" strokeWidth={1.75} />
             {primaryPhone.phone}
