@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Check, Phone, Stethoscope } from "lucide-react";
+import { ArrowRight, Check, ListChecks, Phone, Stethoscope } from "lucide-react";
 import { getService, serviceImage, services, primaryPhone } from "@/lib/data";
 import { PageHero } from "@/components/site/page-hero";
 import { Container, Section } from "@/components/site/section";
@@ -77,6 +77,28 @@ export default async function ServicePage({ params }: Params) {
                     {p}
                   </p>
                 ))}
+              </div>
+
+              <div className="flex flex-col gap-6">
+                <h2 className="flex items-center gap-2.5 font-heading text-xl font-semibold text-ink">
+                  <ListChecks className="size-5 text-gold" strokeWidth={1.75} />
+                  Как проходит лечение
+                </h2>
+                <ol className="flex flex-col gap-5">
+                  {service.process.map((p, i) => (
+                    <li key={p.step} className="flex gap-4">
+                      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-emerald font-heading text-sm font-semibold text-cream">
+                        {i + 1}
+                      </span>
+                      <div className="flex flex-col gap-0.5 pt-1">
+                        <span className="font-medium text-ink">{p.step}</span>
+                        <span className="text-sm leading-relaxed text-ink-soft">
+                          {p.text}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
 
               <div className="flex flex-col gap-5 rounded-2xl border border-line bg-secondary/40 p-7">
