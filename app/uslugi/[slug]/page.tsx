@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Check, ListChecks, Phone, Stethoscope } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  ListChecks,
+  Phone,
+  Sparkles,
+  Stethoscope,
+} from "lucide-react";
 import { getService, serviceImage, services, primaryPhone } from "@/lib/data";
 import { PageHero } from "@/components/site/page-hero";
 import { Container, Section } from "@/components/site/section";
@@ -77,6 +84,26 @@ export default async function ServicePage({ params }: Params) {
                     {p}
                   </p>
                 ))}
+              </div>
+
+              <div className="flex flex-col gap-5">
+                <h2 className="flex items-center gap-2.5 font-heading text-xl font-semibold text-ink">
+                  <Sparkles className="size-5 text-gold" strokeWidth={1.75} />
+                  Методы и технологии
+                </h2>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {service.methods.map((m) => (
+                    <li
+                      key={m}
+                      className="flex items-start gap-3 text-sm text-ink-soft"
+                    >
+                      <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-soft text-emerald">
+                        <Check className="size-3" strokeWidth={3} />
+                      </span>
+                      {m}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="flex flex-col gap-6">
