@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { Service } from "@/lib/data";
+import { serviceImage, type Service } from "@/lib/data";
 import { Icon } from "./icon";
 
 export function ServiceCard({ service }: { service: Service }) {
@@ -12,7 +12,7 @@ export function ServiceCard({ service }: { service: Service }) {
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
-          src={`/services/${service.slug}.jpg`}
+          src={serviceImage(service.slug)}
           alt={service.title}
           fill
           quality={85}

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, Phone, Stethoscope } from "lucide-react";
-import { getService, services, primaryPhone } from "@/lib/data";
+import { getService, serviceImage, services, primaryPhone } from "@/lib/data";
 import { PageHero } from "@/components/site/page-hero";
 import { Container, Section } from "@/components/site/section";
 import { Reveal } from "@/components/site/reveal";
@@ -56,7 +56,7 @@ export default async function ServicePage({ params }: Params) {
             <Reveal className="flex flex-col gap-10">
               <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-line">
                 <Image
-                  src={`/services/${service.slug}.jpg`}
+                  src={serviceImage(service.slug)}
                   alt={service.title}
                   fill
                   priority

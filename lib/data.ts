@@ -340,6 +340,16 @@ export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
 
+// Путь к фото услуги. При замене фото — переименуй файл и добавь override
+// здесь (cache-busting: Next 16 не даёт query-строки у локальных картинок).
+const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
+  gigiena: "/services/gigiena-2.jpg",
+};
+
+export function serviceImage(slug: string): string {
+  return SERVICE_IMAGE_OVERRIDES[slug] ?? `/services/${slug}.jpg`;
+}
+
 export type Advantage = {
   icon: string;
   title: string;

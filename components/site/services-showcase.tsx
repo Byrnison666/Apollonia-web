@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { services } from "@/lib/data";
+import { serviceImage, services } from "@/lib/data";
 
 const INTERVAL = 3800;
 
@@ -45,7 +45,7 @@ export function ServicesShowcase() {
             }}
           >
             <Image
-              src={`/services/${current.slug}.jpg`}
+              src={serviceImage(current.slug)}
               alt={current.title}
               fill
               priority={index === 0}
